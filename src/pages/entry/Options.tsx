@@ -3,9 +3,15 @@ import { useEffect, useState } from 'react'
 import Row from 'react-bootstrap/Row'
 
 import ScoopOption from './ScoopOption'
+import ToppingOption from './ToppingOption'
+
+type Item = {
+  name: string
+  imagePath: string
+}
 
 const Options = ({ optionType }: { optionType: string }) => {
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState<Item[]>([])
 
   // optionType is 'scoops' or 'toppings
   useEffect(() => {
@@ -18,7 +24,7 @@ const Options = ({ optionType }: { optionType: string }) => {
   }, [optionType])
 
   // TODO: replace `null` with ToppingOption when available
-  const ItemComponent = optionType === 'scoops' ? ScoopOption : null
+  const ItemComponent = optionType === 'scoops' ? ScoopOption : ToppingOption
 
   const optionItems = items.map((item) => (
     <ItemComponent key={item.name} name={item.name} imagePath={item.imagePath} />
