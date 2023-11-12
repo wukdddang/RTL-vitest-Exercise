@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Row from 'react-bootstrap/Row'
 
+import AlertBanner from '../common/AlertBanner'
 import ScoopOption from './ScoopOption'
 import ToppingOption from './ToppingOption'
 
@@ -12,18 +13,20 @@ type Item = {
 
 const Options = ({ optionType }: { optionType: string }) => {
   const [items, setItems] = useState<Item[]>([])
+  const [error, setError] = useState(false)
 
   // optionType is 'scoops' or 'toppings
   useEffect(() => {
     axios
       .get(`http://localhost:3030/${optionType}`)
       .then((response) => setItems(response.data))
-      .catch((error) => {
-        // TODO: handle error response
-      })
+      .catch(() => setError(true))
   }, [optionType])
 
-  // TODO: replace `null` with ToppingOption when available
+  if (error) {
+    return <AlertBanner />
+  }
+
   const ItemComponent = optionType === 'scoops' ? ScoopOption : ToppingOption
 
   const optionItems = items.map((item) => (
