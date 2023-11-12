@@ -11,7 +11,9 @@
     "test": "vitest"
   },
   "dependencies": {
+    "axios": "^1.6.1",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
@@ -24,7 +26,6 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
-    "autoprefixer": "^10.4.16",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.6.1",
@@ -33,9 +34,8 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "jsdom": "^22.1.0",
-    "postcss": "^8.4.31",
+    "msw": "^2.0.5",
     "prettier": "^3.0.3",
-    "tailwindcss": "^3.3.5",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-tsconfig-paths": "^4.2.1",
