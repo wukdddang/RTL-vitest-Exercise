@@ -1,11 +1,7 @@
 // vitest.config.ts
 import react from '@vitejs/plugin-react-swc'
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [react()],
-  test: {
-    globals: true,
-    setupFiles: ['./setupTests.ts'],
-  },
 })
